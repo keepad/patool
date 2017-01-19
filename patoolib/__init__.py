@@ -37,7 +37,7 @@ ArchiveFormats = (
     'bzip2', 'cab', 'chm', 'compress', 'cpio', 'deb', 'dms',
     'flac', 'gzip', 'iso', 'lrzip', 'lzh', 'lzip', 'lzma', 'lzop',
     'rar', 'rpm', 'rzip', 'shar', 'shn', 'tar', 'vhd', 'xz',
-    'zip', 'zoo', 'zpaq')
+    'zip', 'zoo', 'zpaq','msu')#added msu
 
 # Supported compressions (used with tar for example)
 # Note that all compressions must also be archive formats
@@ -86,7 +86,8 @@ ArchiveMimetypes = {
     'audio/x-ape': 'ape',
     'audio/x-shn': 'shn',
     'audio/flac': 'flac',
-}
+    'application/vnd.ms-cab-compressed': 'msu',
+}#added msu
 
 try:
     # use Python 3 lzma module if available
@@ -269,6 +270,12 @@ ArchivePrograms = {
     },
     'zpaq': {
         None: ('zpaq',),
+    },
+    'msu': {
+        'extract': ('cabextract', '7z'),
+        'create': ('lcab',),
+        'list': ('cabextract', '7z'),
+        'test': ('cabextract', '7z'),
     },
 }
 
