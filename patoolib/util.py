@@ -147,7 +147,7 @@ def add_mimedb_data(mimedb):
     add_mimetype(mimedb, 'application/zip', '.epub')
     add_mimetype(mimedb, 'application/zip', '.apk')
     add_mimetype(mimedb, 'application/zpaq', '.zpaq')
-
+    add_mimetype(mimedb, 'application/vnd.ms-cab-compressed', '.msu')
 
 def add_mimetype(mimedb, mimetype, extension):
     """Add or replace a mimetype to be used with the given extension."""
